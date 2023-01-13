@@ -170,8 +170,8 @@ func processDirectoryTree(in Input, linters []linter.Linter) error {
 					return err
 				}
 
-				// skip dirs
-				if info.IsDir() {
+				mode := info.Mode()
+				if !(mod.IsRegular()) {
 					return nil
 				}
 
